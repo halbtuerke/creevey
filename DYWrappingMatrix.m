@@ -14,7 +14,7 @@
 #import "CreeveyController.h"
 
 
-#define MAX_EXIF_WIDTH  160
+#define MAX_EXIF_WIDTH  640
 #define MIN_CELL_WIDTH  40
 #define DEFAULT_CELL_WIDTH 120
 // height is 3/4 * width
@@ -130,7 +130,7 @@ static NSRect ScaledCenteredRect(NSSize sourceSize, NSRect boundsRect) {
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	dict[@"DYWrappingMatrixBgColor"] = [NSArchiver archivedDataWithRootObject:[NSColor whiteColor]];
 	dict[@"DYWrappingMatrixAllowMove"] = @NO;
-	dict[@"DYWrappingMatrixMaxCellWidth"] = @"160";
+	dict[@"DYWrappingMatrixMaxCellWidth"] = @"640";
 	[defaults registerDefaults:dict];
 	
     static BOOL initialized = NO;
@@ -525,7 +525,7 @@ static NSRect ScaledCenteredRect(NSSize sourceSize, NSRect boundsRect) {
 	NSRect textCellRect = NSMakeRect(0, 0, area_w, textHeight + VERTPADDING/2);
 	NSRect cellRect;
 	NSWindow *myWindow = [self window];
-	[myTextCell setFont:[NSFont systemFontOfSize:cellWidth >= 160 ? 12 : 4+cellWidth/20]]; // ranges from 6 to 12: 6 + 6*(cellWidth-40)/(160-40)
+	[myTextCell setFont:[NSFont systemFontOfSize:cellWidth >= 640 ? 12 : 4+cellWidth/20]]; // ranges from 6 to 12: 6 + 6*(cellWidth-40)/(640-40)
 	for (i=0; i<numCells; ++i) {
 		row = i/numCols;
 		col = i%numCols;

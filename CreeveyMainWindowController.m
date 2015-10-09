@@ -687,7 +687,7 @@
 	DYImageCache *thumbsCache = [[NSApp delegate] thumbsCache];
 	// only use exif thumbs if we're at the smallest thumbnail  setting
 	BOOL useExifThumbs = [[NSUserDefaults standardUserDefaults]
-						  integerForKey:@"DYWrappingMatrixMaxCellWidth"] == 160;
+						  integerForKey:@"DYWrappingMatrixMaxCellWidth"] == 640;
 	NSUInteger i, lastCount = 0;
 	NSMutableArray *visibleQueue = [[NSMutableArray alloc] initWithCapacity:100];
 	NSString *loadingMsg = NSLocalizedString(@"Loading %i of %u...", @"");

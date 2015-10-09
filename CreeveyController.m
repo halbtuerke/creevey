@@ -71,7 +71,7 @@ NSMutableAttributedString* Fileinfo2EXIFString(NSString *origPath, DYImageCache 
 	NSRange r = [s rangeOfString:NSLocalizedString(@"Camera-Specific Properties:\n", @"")];
 	// ** this may not be optimal
 	if (r.location != NSNotFound) {
-		float x = 160;
+		float x = 640;
 		NSMutableParagraphStyle *styl = [[[NSMutableParagraphStyle alloc] init] autorelease];
 		[styl setHeadIndent:x];
 		[styl setTabStops:@[TAB(NSRightTabStopType,x-5), TAB(NSLeftTabStopType,x)]];
@@ -380,7 +380,7 @@ NSMutableAttributedString* Fileinfo2EXIFString(NSString *origPath, DYImageCache 
 	[NSApp runModalSession:session];
 	[jpegProgressBar startAnimation:self];
 
-	NSSize maxThumbSize = NSMakeSize(160,160);
+	NSSize maxThumbSize = NSMakeSize(640,640);
 	for (NSString *s in a) {
 		NSString *resolvedPath = ResolveAliasToPath(s);
 		if (FileIsJPEG(resolvedPath)) {
@@ -836,10 +836,10 @@ enum {
 			q = [[exifTextView enclosingScrollView] frame]; // get the scrollview, not the textview
 		if (b) { // hiding
 			if (shrink) {
-				r.size.height -= 160;
-				r.origin.y += 160;
+				r.size.height -= 640;
+				r.origin.y += 640;
 			} else
-				q.size.height += 160;
+				q.size.height += 640;
 			[placeholderTextView setHidden:b];
 			[imageView setHidden:b];
 			for (NSLayoutConstraint *constraint in imageView.constraints) {
@@ -849,10 +849,10 @@ enum {
 			[popdownMenu setHidden:b];
 		} else { // showing
 			if (shrink) {
-				r.size.height += 160;
-				r.origin.y -= 160;
+				r.size.height += 640;
+				r.origin.y -= 640;
 			} else
-				q.size.height -= 160;
+				q.size.height -= 640;
 		}
 		NSView *v2 = [exifTextView enclosingScrollView];
 		if (!shrink)
@@ -868,7 +868,7 @@ enum {
 			[imageView setHidden:b];
 			for (NSLayoutConstraint *constraint in imageView.constraints) {
 				if (constraint.firstAttribute == NSLayoutAttributeHeight)
-					constraint.constant = 160;
+					constraint.constant = 640;
 			}
 			[popdownMenu setHidden:b];
 		}
